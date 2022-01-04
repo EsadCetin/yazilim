@@ -1,7 +1,6 @@
 {
 	"expo": {
 		"name": "yazilim",
-		"plugins": ["@notifee/react-native"],
 		"slug": "yazilim",
 		"version": "1.0.0",
 		"orientation": "portrait",

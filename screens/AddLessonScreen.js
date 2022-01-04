@@ -15,6 +15,10 @@ import { TextInput } from "react-native-paper";
 import * as Notifications from "expo-notifications";
 import { Keyboard } from "react-native";
 import { auth, db } from "../firebase";
+import { Dimensions } from "react-native";
+
+const windowWidth = Dimensions.get("window").width;
+const windowHeight = Dimensions.get("window").height;
 
 const DismissKeyboard = ({ children }) => (
 	<TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
@@ -25,7 +29,7 @@ Notifications.setNotificationHandler({
 	handleNotification: async () => ({
 		shouldShowAlert: true,
 		shouldPlaySound: false,
-		shouldSetBadge: false,
+		shouldSetBadge: true,
 	}),
 });
 
@@ -35,6 +39,8 @@ const AddLessonScreen = ({ navigation }) => {
 	const [show, setShow] = useState(false);
 	const [lesson, setLesson] = useState("");
 	const [modalVisible, setModalVisible] = useState(false);
+	const [selectedColor, setSelectedColor] = useState(false);
+	const [bgColor, setBgColor] = useState();
 
 	const addLesson = async () => {
 		if (lesson == "") {
@@ -46,26 +52,23 @@ const AddLessonScreen = ({ navigation }) => {
 				lessonNotif: date,
 				ownerEmail: auth?.currentUser?.email,
 			});
-
 			schedulePushNotification();
+			console.log(date);
 			navigation.navigate("LessonScreen");
 		}
-	};
-
-	const NotifTime = () => {
-		addLesson();
 	};
 
 	async function schedulePushNotification() {
 		await Notifications.scheduleNotificationAsync({
 			content: {
-				title: lesson + " 📝",
+				title: lesson + " 📚",
 				body: date.toLocaleString().substring(0, 16),
 			},
-			trigger: { seconds: 2 },
+			trigger: { date: date },
 		});
 	}
 
+	const changeColor = () => setBgColor(!bgColor);
 	const onChange = (event, selectedDate) => {
 		const currentDate = selectedDate || date;
 		setShow(Platform.OS === "ios");
@@ -135,7 +138,24 @@ const AddLessonScreen = ({ navigation }) => {
 						onChange={onChange}
 					/>
 				)}
-				<TouchableWithoutFeedback onPress={() => NotifTime()}>
+				<TouchableWithoutFeedback onPress={() => changeColor()}>
+					<View
+						style={{
+							backgroundColor: bgColor ? "#288" : "#258",
+							width: windowWidth / 3,
+							height: windowHeight / 15,
+							alignSelf: "center",
+							alignItems: "center",
+							justifyContent: "center",
+							marginTop: windowHeight / 40,
+							borderRadius: 5,
+							borderWidth: 2,
+						}}
+					>
+						<Text style={styles.addText}>Haftalık Tekrarla</Text>
+					</View>
+				</TouchableWithoutFeedback>
+				<TouchableWithoutFeedback onPress={() => addLesson()}>
 					<View style={styles.button}>
 						<Text style={styles.addText}>Ekle</Text>
 					</View>

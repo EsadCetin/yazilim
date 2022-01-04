@@ -102,6 +102,7 @@ export default StyleSheet.create({
 		backgroundColor: "#288",
 	},
 	addText: {
+		textAlign: "center",
 		fontSize: 15,
 		color: "white",
 		alignSelf: "center",

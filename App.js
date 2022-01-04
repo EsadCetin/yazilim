@@ -9,6 +9,7 @@ import LessonScreen from "./screens/LessonScreen";
 import AddExamScreen from "./screens/AddExamScreen";
 import AddLessonScreen from "./screens/AddLessonScreen";
 import LoginScreen from "./screens/LoginScreen";
+import TimerNotification from "./screens/testScreen";
 
 const Stack = createStackNavigator();
 
@@ -39,6 +40,11 @@ function MyStack() {
 				name="AddLessonScreen"
 				options={{ headerShown: false }}
 				component={AddLessonScreen}
+			/>
+			<Stack.Screen
+				name="testScreen"
+				options={{ headerShown: false }}
+				component={TimerNotification}
 			/>
 		</Stack.Navigator>
 	);

@@ -62,7 +62,7 @@ const AddExamScreen = ({ navigation }) => {
 				title: exam + " 📝",
 				body: date.toLocaleString().substring(0, 16),
 			},
-			trigger: { seconds: 2 },
+			trigger: { date: date },
 		});
 	}
 

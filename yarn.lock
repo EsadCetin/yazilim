@@ -1503,11 +1503,6 @@
     "@nodelib/fs.scandir" "2.1.5"
     fastq "^1.6.0"
 
-"@notifee/react-native@^4.0.0":
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/@notifee/react-native/-/react-native-4.0.0.tgz#b06ed56a83adc2df3ce18272457e07b32e1d1765"
-  integrity sha512-fEaCIi0zqr9c6O44Wg8a4hV3i/AHEc+EEbo1COd9hsHvBkJkoUgkphPeLI4T6h/2kD1CWyMGFqTCNXtFndyjng==
-
 "@protobufjs/aspromise@^1.1.1", "@protobufjs/aspromise@^1.1.2":
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/@protobufjs/aspromise/-/aspromise-1.1.2.tgz#9b8b0cc663d669a7d8f6f5d0893a14d348f30fbf"
@@ -3019,6 +3014,11 @@ expo-notifications@^0.13.3:
     fs-extra "^9.0.1"
     unimodules-task-manager-interface "~7.0.3"
     uuid "^3.4.0"
+
+expo-permissions@^13.1.0:
+  version "13.1.0"
+  resolved "https://registry.yarnpkg.com/expo-permissions/-/expo-permissions-13.1.0.tgz#1be8fe01476950d642ea83d383fd8912492434b9"
+  integrity sha512-f3ngERaoeAw8236xyvw4gS89Fxd4fU2soKXQn0JPXwiDGmIXO+lIJNH3psNvAebj4DfmyQtGW4AS1itG83GHaQ==
 
 expo-status-bar@~1.1.0:
   version "1.1.0"

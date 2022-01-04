@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Image, Modal, StatusBar, TouchableOpacity } from "react-native";
 import { Keyboard } from "react-native";
 import { Linking } from "react-native";
@@ -37,6 +37,14 @@ const LoginScreen = ({ navigation }) => {
 				}
 			});
 	};
+	useEffect(() => {
+		const unsubscribe = auth.onAuthStateChanged((authUser) => {
+			if (authUser) {
+				navigation.replace("LessonScreen");
+			}
+		});
+		return unsubscribe;
+	}, []);
 
 	return (
 		<DismissKeyboard>
