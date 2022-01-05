@@ -37,15 +37,7 @@ const LoginScreen = ({ navigation }) => {
 				}
 			});
 	};
-	useEffect(() => {
-		const unsubscribe = auth.onAuthStateChanged((authUser) => {
-			if (authUser) {
-				navigation.replace("LessonScreen");
-			}
-		});
-		return unsubscribe;
-	}, []);
-
+	
 	return (
 		<DismissKeyboard>
 			<View style={styles.container}>
