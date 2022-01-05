@@ -141,7 +141,7 @@ const AddLessonScreen = ({ navigation }) => {
 				<TouchableWithoutFeedback onPress={() => changeColor()}>
 					<View
 						style={{
-							backgroundColor: bgColor ? "#288" : "#258",
+							backgroundColor: bgColor ? "#258" : "#288",
 							width: windowWidth / 3,
 							height: windowHeight / 15,
 							alignSelf: "center",
